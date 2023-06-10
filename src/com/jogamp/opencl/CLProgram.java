@@ -76,7 +76,7 @@ public class CLProgram extends CLObjectResource {
 
     private CLProgram(final CLContext context, final long id) {
         super(context, id);
-        this.kernels = new HashSet<CLKernel>();
+        this.kernels = Collections.synchronizedSet(new HashSet<CLKernel>());
         this.binding = context.getPlatform().getCLBinding();
     }
 
